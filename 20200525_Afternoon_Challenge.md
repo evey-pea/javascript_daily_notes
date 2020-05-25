@@ -109,7 +109,7 @@ Each student should have a name and age property.
 ```javascript
 // Iterate through the array
 for (let i = 0; i < students.length; i++){
-    // Create a hash object from an array value of a name as a string
+    // Create a hash object from an array value of a name as a string (assuming age is '18')
     let entry = {name: students[i], age: 18};
     // Overwrite the original string object in the array with the new object
     students[i] = entry;
@@ -118,6 +118,8 @@ for (let i = 0; i < students.length; i++){
 
 
 #### Bonus: Move the students array into a hash of hashes
+
+This isn't in the original question set from the codecademy gist. I'm throwing this one in as a bonus ;)
 
 ```javascript
 // Create a new hash object
@@ -129,6 +131,93 @@ for (let i = 0; i < students.length; i++){
 }
 ```
 
-**Note:** Since hash objects are stored as a key value pair, store each hash object in another object as a hash collection, each object as a value requires a corresponding 'key' value
+**Note:** Since hash objects are stored as a key value pair, store each hash object in another object as a hash collection, each object as a value requires a corresponding 'key' value. The value used here is ```i``` to maintain the same reference structure as the original array.
 
 ## Ed Additional Challenges
+
+If you finish the challenge above, try converting the ruby code below into JS:
+
+
+### 1. 
+
+#### Ruby (original)
+
+```ruby
+age = 10
+if age >= 18
+    puts "Come in an enjoy a drink!"
+else
+    puts "Go away! Come back in #{18 - age} years"
+end
+```
+
+#### Javascript (ported)
+
+```javascript
+let age = 10;
+
+if (age >=18){
+    alert('Come in an enjoy a drink!');
+} else {
+    alert(`Go away! Come back in ${18 - age} years`)
+};
+```
+
+### 2. 
+
+#### Ruby (original)
+
+```ruby
+is_subscriber = true;
+is_active = true;
+
+if is_subscriber && is_active
+    puts "You're an active subscriber"
+elsif is_subscriber && !is_active
+    puts "Thanks for subscribing, now start using the site"
+elsif !is_subscriber && is_active
+    puts "You use the site a lot, would you like to subscribe?"
+else
+    puts "Please subscribe and use the site"
+end
+```
+
+
+#### Javascript (ported)
+
+```javascript
+let is_subscriber = true;
+let is_active = true;
+
+if (is_subscriber && is_active){
+    alert("You're an active subscriber");
+} else if (is_subscriber && !is_active){
+    alert("Thanks for subscribing, now start using the site");
+} else if (!is_subscriber && is_active){
+    alert("You use the site a lot, would you like to subscribe?");
+} else {
+    alert("Please subscribe and use the site");
+};
+```
+
+### 3. 
+
+#### Ruby (original)
+
+```ruby
+def say_hi(name)
+    puts "Hi #{name}"
+end
+
+say_hi(gets.chomp)
+```
+
+#### Javascript (ported)
+
+```javascript
+function say_hi(name){
+    alert(`Hi ${name}`);
+};
+
+say_hi(prompt('What is your name?'));
+```
