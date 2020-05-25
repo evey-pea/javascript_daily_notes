@@ -1,4 +1,4 @@
-# Javascipt Class notes and Exercises
+# Javascript Class notes and Exercises
 
 ## Purpose
 
