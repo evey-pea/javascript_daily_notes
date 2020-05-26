@@ -1,4 +1,3 @@
-/*
 console.log("Hello World".length);                  // 11
 console.log("Hello"[0]);                            // H
 console.log("World"[2]);                            // r
@@ -7,9 +6,9 @@ console.log("mike".toUpperCase());                  // MIKE
 console.log("DANE".toLowerCase());                  // dane
 console.log("hello".includes("he"));                // true
 console.log("hello".indexOf("e"));                  // 1
-name = "Mike";
+let name = "Mike";
 console.log("Hi I'm " + name);
-name = "Tom";
+let name = "Tom";
 console.log(`Your name is ${name}`);
 let user = {
     name: "Mike",
@@ -32,7 +31,7 @@ console.log(user.name);
 function get_last(names){
     return names[names.length - 1];
 };
-*/
+
 
 let my_name = ["Mike", "Joe"];
 function middle_row_win(board){

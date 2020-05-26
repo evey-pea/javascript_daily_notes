@@ -44,9 +44,9 @@ console.log("mike".toUpperCase());                  // MIKE
 console.log("DANE".toLowerCase());                  // dane
 console.log("hello".includes("he"));                // true
 console.log("hello".indexOf("e"));                  // 1
-name = "Mike";
+let name = "Mike";
 console.log("Hi I'm " + name);
-name = "Tom";
+let name = "Tom";
 console.log(`Your name is ${name}`);
 user = {
     name: "Mike",
