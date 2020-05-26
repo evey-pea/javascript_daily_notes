@@ -121,6 +121,93 @@ Schindler's and Shawshank have both been watched twice, so will be in alphabetic
 
 Pulp Fiction and The Godfather have both been watched once, but Pulp fiction comes earlier alphabetically ("P.." vs "T.."), so it makes the top 4.
 
+#### My solution
+
+```javascript
+function topWatchlistedMoviesAmongFriends(userId){
+    // Find the user's friends and add them to the friendlist
+    let friendList;
+    users.forEach(function(user){
+        if (userId === user.userId){
+            friendList = user.friends;
+        };
+    });
+
+    // Create an empty object to store the titles and count of the movies that all of the friends have all seen
+    let movieCount = {};
+
+    // Iterate through the movies 
+    movies.forEach(function(movie){
+        let viewers = movie.watchlist;
+        // For each movie.watchlist, iterate thought it
+        viewers.forEach(function(viewer){
+            // Iterate through the friends list
+            friendList.forEach(function(user){
+                if (viewer === user){
+                    // If a friend has watched the movie, either add it to the moviecount object or increment the count of the movie by one.
+                    if (Object.keys(movieCount).includes(movie.title)){
+                        movieCount[movie.title] += 1;
+                    } else {
+                        movieCount[movie.title] = 1;
+                    };  
+                };
+            });
+        });
+    });    
+    
+    // Export the movieCount object to an array for sorting
+    let sortingArray = [];
+    for (let [key, value] of Object.entries(movieCount)) {
+        sortingArray.push([key, value]);
+    };
+    
+    // Sort the array by the first value (alphabetically)
+    function sortByTitle(a, b) {
+        if (a[0] === b[0]) {
+            return 0;
+        }
+        else {
+            return (a[0] < b[0]) ? -1 : 1;
+        }
+    }
+    sortingArray = sortingArray.sort(sortByTitle);
+
+    // Sort the array by the second value (count of each movie)
+    function sortBySecond(a, b) {
+        if (a[1] === b[1]) {
+            return 0;
+        }
+        else {
+            return (a[1] > b[1]) ? -1 : 1;
+        }
+    }
+    sortingArray = sortingArray.sort(sortBySecond);
+
+    // Return the top four movies
+    let movieArray = [];
+    for (let i = 0; i < sortingArray.length; i++){
+        if (sortingArray[i] !== undefined){
+            // Stops for loop once index reaches 4
+            if (i === 4){
+                break;
+            } else {
+                movieArray.push(sortingArray[i][0]);
+            }
+        } else {
+            movieArray = sortingArray;
+        };
+    };
+    return movieArray;
+};
+
+
+// Returns ["Schindler's List", "Pulp Fiction", "The Dark Knight", "The Shawshank Redemption"]
+console.log(topWatchlistedMoviesAmongFriends(62289));
+
+// should return: ["The Dark Knight", "Schindler's List", "The Shawshank Redemption", "Pulp Fiction"]
+console.log(topWatchlistedMoviesAmongFriends(15291));
+```
+
 ## Advanced:
 
 Make a terminal script that will create a journal with a short-term memory. Weird, I know. Prompt a user for any content:
