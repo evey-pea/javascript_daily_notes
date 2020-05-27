@@ -133,7 +133,6 @@ function topWatchlistedMoviesAmongFriends(userId) {
             friendList = user.friends.sort((a, b) => a - b);
         };
     });
-    console.log(`Friends: ${friendList}`);
 
     // Create an empty object to store the titles and count of the movies that all of the friends have all seen
     let movieCount = {};
@@ -142,7 +141,6 @@ function topWatchlistedMoviesAmongFriends(userId) {
     movies.forEach(function (movie) {
         // The watch list is sorted to reduce algorithm complexity in comparison with friend list
         let viewers = movie.watchlist.sort((a, b) => a - b);
-        console.log(`Viewers: ${viewers}`);
         // For each movie.watchlist, iterate thought it
         viewers.forEach(function (viewer) {
             // Iterate through the friends list
