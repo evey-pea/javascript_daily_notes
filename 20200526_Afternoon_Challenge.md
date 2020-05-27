@@ -124,47 +124,51 @@ Pulp Fiction and The Godfather have both been watched once, but Pulp fiction com
 #### My solution
 
 ```javascript
-function topWatchlistedMoviesAmongFriends(userId){
+function topWatchlistedMoviesAmongFriends(userId) {
     // Find the user's friends and add them to the friendlist
     let friendList;
-    users.forEach(function(user){
-        if (userId === user.userId){
+    users.forEach(function (user) {
+        if (userId === user.userId) {
             // The friend list is sorted to reduce algorithm complexity in comparison with watchlist
-            friendList = user.friends.sort();
+            friendList = user.friends.sort((a, b) => a - b);
         };
     });
+    console.log(`Friends: ${friendList}`);
 
     // Create an empty object to store the titles and count of the movies that all of the friends have all seen
     let movieCount = {};
 
     // Iterate through the movies 
-    movies.forEach(function(movie){
+    movies.forEach(function (movie) {
         // The watch list is sorted to reduce algorithm complexity in comparison with friend list
-        let viewers = movie.watchlist.sort();
+        let viewers = movie.watchlist.sort((a, b) => a - b);
+        console.log(`Viewers: ${viewers}`);
         // For each movie.watchlist, iterate thought it
-        viewers.forEach(function(viewer){
+        viewers.forEach(function (viewer) {
             // Iterate through the friends list
-            friendList.forEach(function(user){
-                if (viewer === user){
-                    // If a friend has watched the movie, either add it to the moviecount object or increment the count of the movie by one.
-                    if (Object.keys(movieCount).includes(movie.title)){
-                        movieCount[movie.title] += 1;
-                    } else {
-                        movieCount[movie.title] = 1;
-                    };  
-                    // If the user is in the movie watchlist, move on to the next friend
+            friendList.forEach(function (user) {
+                if (user < viewer) {
                     return;
+                } else if (viewer === user) {
+                        // If a friend has watched the movie, either add it to the moviecount object or increment the count of the movie by one.
+                        if (Object.keys(movieCount).includes(movie.title)) {
+                            movieCount[movie.title] += 1;
+                        } else {
+                            movieCount[movie.title] = 1;
+                        };
+                        // If the user is in the movie watchlist, move on to the next friend
+                        return;
                 };
             });
         });
-    });    
-    
+    });
+
     // Export the movieCount object to an array for sorting
     let sortingArray = [];
     for (let [key, value] of Object.entries(movieCount)) {
         sortingArray.push([key, value]);
     };
-    
+
     // Sort the array by the first value (alphabetically)
     function sortByTitle(a, b) {
         if (a[0] === b[0]) {
@@ -189,10 +193,10 @@ function topWatchlistedMoviesAmongFriends(userId){
 
     // Return the top four movies
     let movieArray = [];
-    for (let i = 0; i < sortingArray.length; i++){
-        if (sortingArray[i] !== undefined){
+    for (let i = 0; i < sortingArray.length; i++) {
+        if (sortingArray[i] !== undefined) {
             // Stops for loop once index reaches 4
-            if (i === 4){
+            if (i === 4) {
                 break;
             } else {
                 movieArray.push(sortingArray[i][0]);
