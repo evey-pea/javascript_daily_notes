@@ -90,7 +90,8 @@ function topWatchlistedMoviesAmongFriends(userId){
     let friendList;
     users.forEach(function(user){
         if (userId === user.userId){
-            friendList = user.friends;
+            // The friend list is sorted to reduce algorithm complexity in comparison with watchlist
+            friendList = user.friends.sort();
         };
     });
 
@@ -99,7 +100,8 @@ function topWatchlistedMoviesAmongFriends(userId){
 
     // Iterate through the movies 
     movies.forEach(function(movie){
-        let viewers = movie.watchlist;
+        // The watch list is sorted to reduce algorithm complexity in comparison with friend list
+        let viewers = movie.watchlist.sort();
         // For each movie.watchlist, iterate thought it
         viewers.forEach(function(viewer){
             // Iterate through the friends list
@@ -111,6 +113,8 @@ function topWatchlistedMoviesAmongFriends(userId){
                     } else {
                         movieCount[movie.title] = 1;
                     };  
+                    // If the user is in the movie watchlist, move on to the next friend
+                    return;
                 };
             });
         });
