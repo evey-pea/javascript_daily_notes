@@ -86,14 +86,25 @@ let users = [{
 // Solution code by Evelyn Paplauskas:
 
 function topWatchlistedMoviesAmongFriends(userId) {
-    // Find the user's friends and add them to the friendlist
+    // If the user exists, find the user's friends and add them to the friendlist
     let friendList;
+    let userExists = false;
     users.forEach(function (user) {
         if (userId === user.userId) {
             // The friend list is sorted to reduce algorithm complexity in comparison with watchlist
+            userExists = true;
             friendList = user.friends.sort((a, b) => a - b);
         };
     });
+
+    // If no user with the userId is found in the users object, exit the function
+    if (userExists === false) {
+        return console.log(`No user found with: ${userId}`);
+    };
+    // If there are no userIds in the friendlist, exit the function
+    if (friendList === undefined) {
+        return console.log(`No friends found for user: ${userId}`);
+    };
 
     // Create an empty object to store the titles and count of the movies that all of the friends have all seen
     let movieCount = {};
@@ -107,16 +118,17 @@ function topWatchlistedMoviesAmongFriends(userId) {
             // Iterate through the friends list
             friendList.forEach(function (user) {
                 if (user < viewer) {
+                    // If the first id in the viewer is greater than the user (friend id), move on to the next friend
                     return;
                 } else if (viewer === user) {
-                        // If a friend has watched the movie, either add it to the moviecount object or increment the count of the movie by one.
-                        if (Object.keys(movieCount).includes(movie.title)) {
-                            movieCount[movie.title] += 1;
-                        } else {
-                            movieCount[movie.title] = 1;
-                        };
-                        // If the user is in the movie watchlist, move on to the next friend
-                        return;
+                    // If a friend has watched the movie, either add it to the moviecount object or increment the count of the movie by one.
+                    if (Object.keys(movieCount).includes(movie.title)) {
+                        movieCount[movie.title] += 1;
+                    } else {
+                        movieCount[movie.title] = 1;
+                    };
+                    // If the user is in the movie watchlist, move on to the next friend
+                    return;
                 };
             });
         });
@@ -171,5 +183,6 @@ function topWatchlistedMoviesAmongFriends(userId) {
 // Returns ["Schindler's List", "Pulp Fiction", "The Dark Knight", "The Shawshank Redemption"]
 console.log(topWatchlistedMoviesAmongFriends(62289));
 
-// should return: ["The Dark Knight", "Schindler's List", "The Shawshank Redemption", "Pulp Fiction"]
+// Returns ["The Dark Knight", "Schindler's List", "The Shawshank Redemption", "Pulp Fiction"]
 console.log(topWatchlistedMoviesAmongFriends(15291));
+
