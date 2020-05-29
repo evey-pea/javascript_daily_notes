@@ -132,7 +132,7 @@ Research: [value vs reference](https://codeburst.io/explaining-value-vs-referenc
 
 
 #### My 'Beast mode++' solution
+<!--- #TODO 20200528 Beast Mode++  --->
 
 ```javascript
-#TODO 20200528 Beast Mode++
 ```
