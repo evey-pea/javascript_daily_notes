@@ -22,13 +22,15 @@ Turn JSON into a JS object:
 ```javascript
 lunchJson = '{"food":"Pork Bun Roll","price":10}';
 lunch = JSON.parse(lunchJson);
-Resources
-JSON.parse and JSON.stringify
 ```
+
+## Resources
+[JSON.parse and JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+
 
 ## Challenge
 
-Here's some JSON from Yahoo!'s weather API (2018-03-28)
+[Here's some JSON](https://coderacademyedu.github.io/resources/weather.json) from Yahoo!'s weather API (2018-03-28)
 
 - Copy the JSON into your code and parse it using JSON.parse
 - Log the sunrise and sunset dates
