@@ -72,7 +72,7 @@ function whichIsLarger(f, g) {
 };
 ```
 
-## Beast Mode+
+## Beast Mode++
 
 Taken from: https://edabit.com/challenge/4gzDuDkompAqujpRi
 

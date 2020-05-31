@@ -12,7 +12,9 @@ Each day's notes and exercises can be found in a markdown file with the followin
 [date: YYYYMMDD]_[Morning || Afternoon]_[Notes || Challenges || Exercise]
 ```
 
-The correspong files that I did my work in can be found in the *js_files* directory with a similar name. Sometime it will be split into smaller files to reduce of code being run whilst testing it in the *index.html* file.
+The correspong files that I did my work in can be found in the *js_files* directory with a similar name. Sometime it will be split into smaller files to reduce of code being run whilst testing it in the *index.html* file. 
+
+**Note** A javascript file is only provided if I have executed on the code either through the index.html template or via node.js. If the code was worked on or tested in an online platform, the code will only be provided in the document for that challenge.
 
 ## License
 
