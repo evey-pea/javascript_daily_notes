@@ -107,6 +107,8 @@ It must be in the format [x,y]
 
 [Doing the Impossible](https://www.youtube.com/watch?v=h1tIVDkYAjA)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/h1tIVDkYAjA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Suppose we had the haystack:
 
 ```javascript
