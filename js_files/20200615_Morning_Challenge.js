@@ -1,10 +1,7 @@
 function readingSpeed(text) {
-  // make text all lower case
-  text = text.toLowerCase()
-
   // Remove punction and split text into array of words
-  let words = text.replace(/[.,\/#!'$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
-
+  let words = text.toLowerCase().replace(/[^a-z," "]/g,"").split(" ");
+  console.log(words)
     // Function: cpunt each character in a given string
     let characterCount = (string) => {
         let charArray = string.split("")
@@ -31,4 +28,3 @@ function readingSpeed(text) {
   // Pass the dictionary into the function that adds the score and return the result
   return totalCharacters(dictionary);
 }
-  
