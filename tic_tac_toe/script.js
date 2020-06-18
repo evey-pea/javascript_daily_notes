@@ -82,9 +82,13 @@ const setBlock = (blockId, value) => {
 
 // checks the contents of the blocks against the 2D array of rows to see if there is a winner
 const checkRows = () => {
+    // Iterate through row
     for (let row of rowScoringIds) {
+        // Create an array of values mapped from the blockContent object 
         const rowContent = row.map(block => blockContents[`${block}`]); 
+        //Initialise an object to record the score
         const rowScoring = {"X": 0, "O": 0};
+        // Iterate through the row of values and increment the score of "X" and "O" values
         for (content of rowContent) {
             if (content === "X") {
                 rowScoring["X"] += 1;
@@ -94,6 +98,7 @@ const checkRows = () => {
                 continue;
             }
         }
+        // Check if the row has a score of '3' and declare a winner
         if (rowScoring["X"] === 3){
             winnerDeclare("Player X", row);
             return;
@@ -101,17 +106,18 @@ const checkRows = () => {
             winnerDeclare("Player O", row);
             return;
         } else {
+            // If neither X or O scored '3' then move to the next row
             continue;
         }
     };
+    // Check if there are any blocks unmarked remaining
     if (hasNull(blockContents)) {
-        // If some block are unoccupied, toggle play and keep playing
+        // If some block are unoccupied, toggle player and keep playing
         togglePlayer(player);
     } else {
         // If all block occupied and no winner, declare no one wins
         winnerDeclare("No one", []);
     }
-
 };
 
 // Declare the winner or if none has won

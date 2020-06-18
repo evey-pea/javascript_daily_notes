@@ -5,6 +5,7 @@
 - Create a webpage with an h1 of "My Book List".
 - Add a script tag to the bottom of the page, where all your JS will go.
 - Copy this array of books:
+
     ```javascript
     let books = [
       {
@@ -18,9 +19,11 @@
       }
     ];
     ```
+
 - Iterate through the array of books. For each book, create a p element with the book title and author and append it to the page.
 
-**Bonuses**:
+### Bonuses
+
 - Use a ul and li to display the books.
 - Add an img to each book that links to a URL of the book cover.
 - Change the style of the book depending on whether you have read it or not.
