@@ -1,0 +1,96 @@
+:root {
+    --off-white : #efefef;
+    --light-gray : #dfdfdf;
+    --dark-gray : #c3c3c3;
+    --light-blue : #66aaff;
+    --deep-blue : #2255ff;
+    --deep-gray : #424242;
+    font-size: 3vh;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+    width: 80vw;
+    margin: auto;
+    background-color: var(--light-blue);
+    padding: 0em 2em 4em 2em;
+    border-radius: 2em;
+}
+
+#list-header {
+    color: var(--off-white);
+    text-align: center;
+    padding: 0.5em 0;
+}
+#input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+}
+
+.add-input {
+    font-size: 3vh;
+    border-radius: 0.8rem;
+}
+
+#item-input {  
+    padding: 0.4rem 1rem;
+    width: 100%;
+    margin-right: 1em;
+}
+
+#add-button { 
+    color: var(--off-white);
+    background-color: var(--deep-blue);
+    padding: 0.3rem 1rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+     transition: 0.2s;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2em;
+}
+
+li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+.close {
+    color: black;
+    position: relative;
+    float: right;
+    margin: auto 0;
+    height:100%;
+    padding: 0 1em;
+    border-radius: 0.5em;
+}
+
+.close:hover {
+    background-color: var(--deep-gray);
+    color: var(--off-white);
+}
+
+li:nth-child(odd) {
+    background-color: var(--light-gray);
+}
+
+li:nth-child(even) {
+    background-color: var(--dark-gray);
+}
+
+li:nth-last-child(1){
+    margin-bottom: 0;
+}
